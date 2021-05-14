@@ -11,6 +11,7 @@ use ElementorPro\Core\Editor\Editor;
 use ElementorPro\Core\Modules_Manager;
 use ElementorPro\Core\Preview\Preview;
 use ElementorPro\Core\Upgrade\Manager as UpgradeManager;
+use ElementorPro\License\API;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -184,6 +185,7 @@ class Plugin {
 			'elementor-pro-frontend',
 			ELEMENTOR_PRO_URL . 'assets/js/frontend' . $suffix . '.js',
 			[
+				'elementor-pro-webpack-runtime',
 				'elementor-frontend-modules',
 				'elementor-sticky',
 			],
@@ -191,9 +193,18 @@ class Plugin {
 			true
 		);
 
+		if ( self::elementor()->experiments->is_feature_active( 'e_optimized_assets_loading' ) ) {
+			wp_enqueue_script( 'pro-elements-handlers' );
+		} else {
+			wp_enqueue_script( 'pro-preloaded-elements-handlers' );
+		}
+
 		$locale_settings = [
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'nonce' => wp_create_nonce( 'elementor-pro-frontend' ),
+			'urls' => [
+				'assets' => apply_filters( 'elementor_pro/frontend/assets_url', ELEMENTOR_PRO_ASSETS_URL ),
+			],
 		];
 
 		/**
@@ -216,6 +227,34 @@ class Plugin {
 
 	public function register_frontend_scripts() {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		wp_register_script(
+			'elementor-pro-webpack-runtime',
+			ELEMENTOR_PRO_URL . 'assets/js/webpack-pro.runtime' . $suffix . '.js',
+			[],
+			ELEMENTOR_PRO_VERSION,
+			true
+		);
+
+		wp_register_script(
+			'pro-elements-handlers',
+			ELEMENTOR_PRO_URL . 'assets/js/elements-handlers' . $suffix . '.js',
+			[
+				'elementor-frontend',
+			],
+			ELEMENTOR_PRO_VERSION,
+			true
+		);
+
+		wp_register_script(
+			'pro-preloaded-elements-handlers',
+			ELEMENTOR_PRO_URL . 'assets/js/preloaded-elements-handlers' . $suffix . '.js',
+			[
+				'elementor-frontend',
+			],
+			ELEMENTOR_PRO_VERSION,
+			true
+		);
 
 		wp_register_script(
 			'smartmenus',
@@ -294,6 +333,15 @@ class Plugin {
 		return ELEMENTOR_PRO_ASSETS_PATH . 'css/templates/';
 	}
 
+	private function add_subscription_template_access_level_to_settings( $settings ) {
+		// Core >= 3.2.0
+		if ( isset( $settings['library_connect']['current_access_level'] ) ) {
+			$settings['library_connect']['current_access_level'] = API::get_library_access_level();
+		}
+
+		return $settings;
+	}
+
 	private function setup_hooks() {
 		add_action( 'elementor/init', [ $this, 'on_elementor_init' ] );
 
@@ -305,6 +353,10 @@ class Plugin {
 
 		add_filter( 'elementor/core/responsive/get_stylesheet_templates', [ $this, 'get_responsive_stylesheet_templates' ] );
 		add_action( 'elementor/document/save_version', [ $this, 'on_document_save_version' ] );
+
+		add_filter( 'elementor/editor/localize_settings', function ( $settings ) {
+			return $this->add_subscription_template_access_level_to_settings( $settings );
+		}, 11 /** After Elementor Core (Library) */ );
 	}
 
 	/**

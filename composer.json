@@ -1,8 +1,11 @@
 {
-  "name": "yangm97/elementor-pro",
+  "name": "holaontiveros/elementor-pro",
   "description": "It’s about time for a live page builder, with no limits of design. A page builder that delivers high-end page designs and advanced capabilities, never before seen on WordPress. It’s time for Elementor Page Builder.",
-  "keywords": ["wordpress", "plugin"],
-  "homepage": "https://github.com/yangm97/elementor-pro",
+  "keywords": [
+    "wordpress",
+    "plugin"
+  ],
+  "homepage": "https://github.com/holaontiveros/elementor-pro",
   "authors": [
     {
       "name": "Elementor.com",
@@ -11,6 +14,6 @@
   ],
   "type": "wordpress-plugin",
   "require": {
-    "php": ">=5.4"
+    "php": ">=7.3"
   }
 }
