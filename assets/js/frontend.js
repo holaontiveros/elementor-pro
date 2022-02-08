@@ -1,4 +1,4 @@
-/*! elementor-pro - v3.4.2 - 12-10-2021 */
+/*! elementor-pro - v3.6.0 - 31-01-2022 */
 (self["webpackChunkelementor_pro"] = self["webpackChunkelementor_pro"] || []).push([["frontend"],{
 
 /***/ "../node_modules/@babel/runtime/helpers/defineProperty.js":
@@ -67,6 +67,8 @@ var _frontend4 = _interopRequireDefault(__webpack_require__(/*! ../../../../modu
 
 var _frontend5 = _interopRequireDefault(__webpack_require__(/*! ../../../../modules/payments/assets/js/frontend/frontend */ "../modules/payments/assets/js/frontend/frontend.js"));
 
+var _frontend6 = _interopRequireDefault(__webpack_require__(/*! ../../../../modules/progress-tracker/assets/js/frontend/frontend */ "../modules/progress-tracker/assets/js/frontend/frontend.js"));
+
 class ElementorProFrontend extends elementorModules.ViewModule {
   onInit() {
     super.onInit();
@@ -85,7 +87,8 @@ class ElementorProFrontend extends elementorModules.ViewModule {
       sticky: _frontend2.default,
       codeHighlight: _frontend3.default,
       videoPlaylist: _frontend4.default,
-      payments: _frontend5.default
+      payments: _frontend5.default,
+      progressTracker: _frontend6.default
     }; // Keep this line before applying filter on the handlers.
 
     elementorProFrontend.trigger('elementor-pro/modules/init:before');
@@ -231,10 +234,9 @@ class _default extends elementorModules.frontend.handlers.Base {
 
   addCSSTransformEvents() {
     // Remove CSS transition variable that assigned from scroll.js in order to allow the transition of the CSS-Transform.
-    const motionFxScrolling = this.getElementSettings('motion_fx_motion_fx_scrolling'),
-          transition = this.getElementSettings('_transform_transition_hover');
+    const motionFxScrolling = this.getElementSettings('motion_fx_motion_fx_scrolling');
 
-    if (motionFxScrolling && transition !== null && transition !== void 0 && transition.size && !this.isTransitionEventAdded) {
+    if (motionFxScrolling && !this.isTransitionEventAdded) {
       this.isTransitionEventAdded = true;
       this.elements.$container.on('mouseenter', () => {
         this.elements.$container.css('--e-transform-transition-duration', '');
@@ -326,7 +328,7 @@ class _default extends elementorModules.frontend.handlers.Base {
         $dimensionsElement;
     const elementType = this.getElementType();
 
-    if ('element' === type && 'section' !== elementType) {
+    if ('element' === type && !['section', 'container'].includes(elementType)) {
       $dimensionsElement = $element;
       let childElementSelector;
 
@@ -608,12 +610,21 @@ class _default extends elementorModules.Module {
   }
 
   setCSSTransformVariables(elementSettings) {
-    this.CSSTransformVariables = {};
+    this.CSSTransformVariables = [];
     jQuery.each(elementSettings, (settingKey, settingValue) => {
-      const transformKeyMatches = settingKey.match(/_transform_(.+?)_effect$/m);
+      const transformKeyMatches = settingKey.match(/_transform_(.+?)_effect/m);
 
       if (transformKeyMatches && settingValue) {
-        this.CSSTransformVariables[transformKeyMatches[1]] = true;
+        if ('perspective' === transformKeyMatches[1]) {
+          this.CSSTransformVariables.unshift(transformKeyMatches[1]);
+          return;
+        }
+
+        if (this.CSSTransformVariables.includes(transformKeyMatches[1])) {
+          return;
+        }
+
+        this.CSSTransformVariables.push(transformKeyMatches[1]);
       }
     });
   }
@@ -659,7 +670,7 @@ class _default extends elementorModules.Module {
     let value = '';
 
     if ('transform' === ruleName) {
-      jQuery.each(this.CSSTransformVariables, variableKey => {
+      jQuery.each(this.CSSTransformVariables, (index, variableKey) => {
         const variableName = variableKey;
 
         if (variableKey.startsWith('flip')) {
@@ -700,7 +711,7 @@ class _default extends elementorModules.Module {
 
   refresh() {
     this.rulesVariables = {};
-    this.CSSTransformVariables = {};
+    this.CSSTransformVariables = [];
     this.$element.css({
       transform: '',
       filter: '',
@@ -764,8 +775,10 @@ class _default extends elementorModules.ViewModule {
           this.removeAnimationFrameRequest();
         }
       }
-    });
-    this.intersectionObserver.observe(this.motionFX.elements.$parent[0]);
+    }); // Determine which element we should observe.
+
+    const observedElement = 'page' === this.motionFX.getSettings('range') ? elementorFrontend.elements.$body[0] : this.motionFX.elements.$parent[0];
+    this.intersectionObserver.observe(observedElement);
   }
 
   runCallback(...args) {
@@ -893,11 +906,11 @@ class _default extends _base.default {
   onScrollMovement() {
     this.updateMotionFxDimensions();
     this.updateAnimation();
-    this.setTransitionVariableToZero();
+    this.resetTransitionVariable();
   }
 
-  setTransitionVariableToZero() {
-    this.motionFX.$element.css('--e-transform-transition-duration', '0ms');
+  resetTransitionVariable() {
+    this.motionFX.$element.css('--e-transform-transition-duration', '100ms');
   }
 
   updateMotionFxDimensions() {
@@ -1177,6 +1190,32 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "../modules/progress-tracker/assets/js/frontend/frontend.js":
+/*!******************************************************************!*\
+  !*** ../modules/progress-tracker/assets/js/frontend/frontend.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+class _default extends elementorModules.Module {
+  constructor() {
+    super();
+    elementorFrontend.elementsHandler.attachHandler('progress-tracker', () => __webpack_require__.e(/*! import() | progress-tracker */ "progress-tracker").then(__webpack_require__.bind(__webpack_require__, /*! ./handlers/progress-tracker */ "../modules/progress-tracker/assets/js/frontend/handlers/progress-tracker.js")));
+  }
+
+}
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "../modules/sticky/assets/js/frontend/frontend.js":
 /*!********************************************************!*\
   !*** ../modules/sticky/assets/js/frontend/frontend.js ***!
@@ -1199,6 +1238,7 @@ class _default extends elementorModules.Module {
   constructor() {
     super();
     elementorFrontend.elementsHandler.attachHandler('section', _sticky.default, null);
+    elementorFrontend.elementsHandler.attachHandler('container', _sticky.default, null);
     elementorFrontend.elementsHandler.attachHandler('widget', _sticky.default, null);
   }
 
@@ -1224,11 +1264,11 @@ exports.default = void 0;
 
 var _default = elementorModules.frontend.handlers.Base.extend({
   bindEvents() {
-    elementorFrontend.addListenerOnce(this.getUniqueHandlerID() + 'sticky', 'resize', this.run);
+    elementorFrontend.addListenerOnce(this.getUniqueHandlerID() + 'sticky', 'resize', this.refresh);
   },
 
   unbindEvents() {
-    elementorFrontend.removeListeners(this.getUniqueHandlerID() + 'sticky', 'resize', this.run);
+    elementorFrontend.removeListeners(this.getUniqueHandlerID() + 'sticky', 'resize', this.refresh);
   },
 
   isStickyInstanceActive() {
@@ -1239,7 +1279,6 @@ var _default = elementorModules.frontend.handlers.Base.extend({
    * Get the current active setting value for a responsive control.
    *
    * @param {string} setting
-   *
    * @return {any} - Setting value.
    */
   getResponsiveSetting(setting) {
@@ -1251,7 +1290,6 @@ var _default = elementorModules.frontend.handlers.Base.extend({
    * Return an array of settings names for responsive control (e.g. `settings`, `setting_tablet`, `setting_mobile` ).
    *
    * @param {string} setting
-   *
    * @return {string[]} - List of settings.
    */
   getResponsiveSettingList(setting) {
@@ -1277,7 +1315,7 @@ var _default = elementorModules.frontend.handlers.Base.extend({
         $wpAdminBar = elementorFrontend.elements.$wpAdminBar;
 
     if (elementSettings.sticky_parent) {
-      stickyOptions.parent = '.elementor-widget-wrap';
+      stickyOptions.parent = '.e-container, .elementor-widget-wrap';
     }
 
     if ($wpAdminBar.length && 'top' === elementSettings.sticky && 'fixed' === $wpAdminBar.css('position')) {
@@ -1315,6 +1353,10 @@ var _default = elementorModules.frontend.handlers.Base.extend({
     }
   },
 
+  refresh() {
+    this.run(true);
+  },
+
   reactivate() {
     this.deactivate();
     this.activate();
@@ -1339,7 +1381,11 @@ var _default = elementorModules.frontend.handlers.Base.extend({
    * @return {void}
    */
   onDeviceModeChange() {
-    this.run(true);
+    // Wait for the call stack to be empty.
+    // The `run` function requests the current device mode from the CSS so it's not ready immediately.
+    // (need to wait for the `deviceMode` event to change the CSS).
+    // See `elementorFrontend.getCurrentDeviceMode()` for reference.
+    setTimeout(this.refresh);
   },
 
   onInit() {
