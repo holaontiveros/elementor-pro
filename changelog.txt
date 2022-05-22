@@ -1,5 +1,11 @@
 # Elementor Pro - by Elementor.com
 
+#### 3.7.1 - 2022-05-16
+
+* Fix: Notes icon appears as an empty square in admin top bar for users with permissions lower than Editor
+* Fix: Notes experiment causes a PHP fatal error on some cases
+* Fix: UI glitches in Notes feature
+
 #### 3.7.0 - 2022-05-10
 
 * New: Introducing Notes - Work collaboratively directly within Elementor

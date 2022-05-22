@@ -1,4 +1,4 @@
-/*! elementor-pro - v3.7.0 - 08-05-2022 */
+/*! elementor-pro - v3.7.1 - 16-05-2022 */
 (self["webpackChunkelementor_pro"] = self["webpackChunkelementor_pro"] || []).push([["video-playlist"],{
 
 /***/ "../modules/video-playlist/assets/js/frontend/base-tabs.js":

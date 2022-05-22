@@ -912,7 +912,7 @@ var _templateObject, _templateObject2;
 
 
 
-var Text = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.p(_templateObject || (_templateObject = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n  all: revert;\n\n  color: #a4afb6 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n  font-family: Roboto, sans-serif !important;\n  font-size: 9px !important;\n  font-weight: normal !important;\n  text-transform: none !important;\n  font-style: normal !important;\n  text-decoration: none !important;\n  line-height: 1.5 !important;\n  letter-spacing: normal !important;\n  word-spacing: normal !important;\n"])));
+var Text = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.p(_templateObject || (_templateObject = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n  all: revert;\n\n  color: #a4afb6 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n  font-family: Roboto, sans-serif !important;\n  font-size: 10px !important;\n  font-weight: normal !important;\n  text-transform: none !important;\n  font-style: normal !important;\n  text-decoration: none !important;\n  line-height: 1.5 !important;\n  letter-spacing: normal !important;\n  word-spacing: normal !important;\n"])));
 var Strong = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.strong(_templateObject2 || (_templateObject2 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n  font-weight: 500;\n"]))); // Responsible for showing an indicator if the note was created in another route or post.
 
 function MarksNoteViewExternalIndicator(props) {
@@ -1472,7 +1472,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 
 
 
@@ -1491,16 +1491,17 @@ var defaultParams = {
   order: 'desc'
 };
 var List = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_ui_typeahead_typeahead__WEBPACK_IMPORTED_MODULE_7__.default.List)(_templateObject || (_templateObject = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tposition: absolute !important;\n\ttop: 100% !important;\n"])));
-var UserContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_ui_typeahead_typeahead__WEBPACK_IMPORTED_MODULE_7__.default.ListItem)(_templateObject2 || (_templateObject2 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tdisplay: flex !important;\n\tflex-direction: row !important;\n\talign-items: center !important;\n\tgap: 10px !important;\n"])));
-var UserDetails = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_ui_div_base__WEBPACK_IMPORTED_MODULE_11__.default)(_templateObject3 || (_templateObject3 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tdisplay: flex !important;\n\tflex-direction: column !important;\n\tjustify-content: space-between !important;\n\n\t&::before,\n\t&::after {\n\t\tdisplay: none !important;\n\t}\n"])));
-var UserName = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.span(_templateObject4 || (_templateObject4 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tall: revert;\n\n\tpadding: 0 !important;\n\tmargin: 0 !important;\n\tfont-size: 12px !important;\n\tfont-weight: bold !important;\n\tcolor: inherit !important;\n"])));
-var UserSlug = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.span(_templateObject5 || (_templateObject5 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tfont-size: 11px !important;\n\tcolor: #a4afb6 !important;\n"])));
+var UserContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_ui_typeahead_typeahead__WEBPACK_IMPORTED_MODULE_7__.default.ListItem)(_templateObject2 || (_templateObject2 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tdisplay: flex !important;\n\tflex-direction: row !important;\n\talign-items: center !important;\n\tgap: 12px !important;\n"])));
+var UserDetails = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(_ui_div_base__WEBPACK_IMPORTED_MODULE_11__.default)(_templateObject3 || (_templateObject3 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tdisplay: flex !important;\n\tflex-direction: column !important;\n\tjustify-content: space-between !important;\n\tgap: 2px !important;\n\n\t&::before,\n\t&::after {\n\t\tdisplay: none !important;\n\t}\n"])));
+var UserName = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.span(_templateObject4 || (_templateObject4 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tall: revert;\n\n\tpadding: 0 !important;\n\tmargin: 0 !important;\n\tfont-size: 12px !important;\n\tfont-weight: 500 !important;\n\tcolor: inherit !important;\n"])));
+var UserSlug = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.span(_templateObject5 || (_templateObject5 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tfont-size: 10px !important;\n\tcolor: #a4afb6 !important;\n"])));
 var Link = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.a.attrs(function () {
   return {
     target: '_blank',
     rel: 'noreferrer'
   };
 })(_templateObject6 || (_templateObject6 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n\tall: revert;\n\n\tcolor: #58d0f5 !important;\n\tfont-family: Roboto, sans-serif !important;\n\tfont-size: 1em !important;\n\tfont-weight: normal !important;\n\ttext-transform: none !important;\n\tfont-style: normal !important;\n\ttext-decoration: underline !important;\n\tline-height: normal !important;\n\tletter-spacing: normal !important;\n\tword-spacing: normal !important;\n\n\t&:hover,\n\t&:focus {\n\t\tcolor: #6d7882 !important;\n\t\ttext-decoration: underline; // Repeat in order to override theme styles.\n\t}\n"])));
+var FooterTitle = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.strong(_templateObject7 || (_templateObject7 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__.default)(["\n  font-weight: 500 !important;\n"])));
 function MentionsUserList(props) {
   var _useNotesConfig = (0,_hooks_use_notes_config__WEBPACK_IMPORTED_MODULE_9__.default)(),
       urls = _useNotesConfig.urls,
@@ -1525,7 +1526,7 @@ function MentionsUserList(props) {
       size: 'md',
       src: user.avatarUrls['48']
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(UserDetails, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(UserName, null, user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(UserSlug, null, user.slug)));
-  }), isSuccess && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_ui_typeahead_typeahead__WEBPACK_IMPORTED_MODULE_7__.default.ListFooter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("strong", null, __("Can't find someone?", 'elementor-pro')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", null, canCreateUsers ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Fragment), null, __('Add them from the', 'elementor-pro'), ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(Link, {
+  }), isSuccess && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_ui_typeahead_typeahead__WEBPACK_IMPORTED_MODULE_7__.default.ListFooter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(FooterTitle, null, __("Can't find someone?", 'elementor-pro')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", null, canCreateUsers ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Fragment), null, __('Add them from the', 'elementor-pro'), ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(Link, {
     href: urls.admin_url_create_user
   }, __('WP Dashboard', 'elementor-pro'))) : __('Ask the site admin to add them', 'elementor-pro'))));
 }
@@ -1927,7 +1928,7 @@ __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var PropTypes = __webpack_require__(/*! prop-types */ "../../../node_modules/prop-types/index.js");
 
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
 
 
 
@@ -1946,9 +1947,10 @@ var Container = (0,styled_components__WEBPACK_IMPORTED_MODULE_11__.default)(_ui_
 });
 var IconCol = (0,styled_components__WEBPACK_IMPORTED_MODULE_11__.default)(_ui_div_base__WEBPACK_IMPORTED_MODULE_8__.default)(_templateObject3 || (_templateObject3 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tflex-shrink: 0;\n\n\t&::before,\n\t&::after {\n\t\tdisplay: none !important;\n\t}\n"])));
 var ContentCol = (0,styled_components__WEBPACK_IMPORTED_MODULE_11__.default)(_ui_div_base__WEBPACK_IMPORTED_MODULE_8__.default)(_templateObject4 || (_templateObject4 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tflex-grow: 1;\n\n\t&::before,\n\t&::after {\n\t\tdisplay: none !important;\n\t}\n"])));
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_11__.default.p(_templateObject5 || (_templateObject5 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tall: revert;\n\n\tmargin: 0 0 8px 0 !important;\n\tfont-family: Roboto, sans-serif !important;\n\tfont-size: 9px !important;\n\tfont-weight: 500 !important;\n\ttext-transform: none !important;\n\tfont-style: normal !important;\n\ttext-decoration: none !important;\n\tline-height: normal !important;\n\tletter-spacing: normal !important;\n\tword-spacing: normal !important;\n"])));
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_11__.default.p(_templateObject5 || (_templateObject5 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tall: revert;\n\n\tmargin: 0 0 8px 0 !important;\n\tfont-family: Roboto, sans-serif !important;\n\tfont-size: 10px !important;\n\tfont-weight: 500 !important;\n\ttext-transform: none !important;\n\tfont-style: normal !important;\n\ttext-decoration: none !important;\n\tline-height: normal !important;\n\tletter-spacing: normal !important;\n\tword-spacing: normal !important;\n"])));
 var Date = styled_components__WEBPACK_IMPORTED_MODULE_11__.default.span(_templateObject6 || (_templateObject6 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tcolor: #a4afb6;\n"])));
 var RepliesCount = styled_components__WEBPACK_IMPORTED_MODULE_11__.default.p(_templateObject7 || (_templateObject7 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tall: revert;\n\n\tmargin: 4px 0 0 0 !important;\n\tcolor: #a4afb6 !important;\n\tfont-family: Roboto, sans-serif !important;\n\tfont-size: 10px !important;\n\tfont-weight: normal !important;\n\ttext-transform: none !important;\n\tfont-style: normal !important;\n\ttext-decoration: none !important;\n\tline-height: normal !important;\n\tletter-spacing: normal !important;\n\tword-spacing: normal !important;\n"])));
+var NoteContent = (0,styled_components__WEBPACK_IMPORTED_MODULE_11__.default)(_shared_note_content__WEBPACK_IMPORTED_MODULE_7__.default)(_templateObject8 || (_templateObject8 = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n  --line-height: 1.5;\n  --max-rows: 6;\n\n  display: -webkit-box !important;\n  -webkit-box-orient: vertical !important;\n  -webkit-line-clamp: var( --max-rows ) !important;\n  max-height: calc( ( 1em * var( --line-height ) * var( --max-rows ) ) ) !important;\n  overflow: hidden !important;\n\n  & > p {\n\tmargin: 0 !important; // To make the ellipsis look better on multi-paragraph content.\n  }\n"])));
 function PanelNoteItem(props) {
   var ref = (0,_hooks_use_scroll_into_view__WEBPACK_IMPORTED_MODULE_6__.default)(props.isActive, {
     block: 'nearest',
@@ -1963,7 +1965,7 @@ function PanelNoteItem(props) {
     variant: props.isActive || props.note.isUnreadThread() ? 'solid' : 'ghost',
     size: 'sm',
     muted: props.note.isResolved
-  }, props.note.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(ContentCol, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Title, null, props.note.author.name, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Date, null, props.note.getFormattedLastActivityAt())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_shared_note_content__WEBPACK_IMPORTED_MODULE_7__.default, {
+  }, props.note.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(ContentCol, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Title, null, props.note.author.name, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Date, null, props.note.getFormattedLastActivityAt())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(NoteContent, {
     disableInteractions: true
   }, noteContent), props.note.repliesCount > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(RepliesCount, null, __('%s replies', 'elementor-pro').replace('%s', props.note.repliesCount))));
 }
@@ -2319,7 +2321,7 @@ __webpack_require__.r(__webpack_exports__);
 var _templateObject;
 
 
-var NoteContentParagraph = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.p(_templateObject || (_templateObject = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n  --color-gray-600: #6d7882;\n\n  font-family: Roboto, sans-serif !important;\n  font-size: 12px !important;\n  font-weight: 500 !important;\n  text-transform: none !important;\n  font-style: normal !important;\n  text-decoration: none !important;\n  line-height: 1.5 !important;\n  letter-spacing: normal !important;\n  word-spacing: normal !important;\n  color: var(--color-gray-600);\n  margin: 0 0 5px 0 !important;\n"])));
+var NoteContentParagraph = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.p(_templateObject || (_templateObject = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n  --color-gray-600: #6d7882;\n\n  font-family: Roboto, sans-serif !important;\n  font-size: 12px !important;\n  font-weight: 400 !important;\n  text-transform: none !important;\n  font-style: normal !important;\n  text-decoration: none !important;\n  line-height: 1.5 !important;\n  letter-spacing: normal !important;\n  word-spacing: normal !important;\n  color: var(--color-gray-600);\n  margin: 0 0 .5em 0 !important;\n"])));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NoteContentParagraph);
 
 /***/ }),
@@ -2514,14 +2516,16 @@ function NoteContent(props) {
     return richTextParser.parse(props.children);
   }, [props.children]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Wrapper, {
-    disableInteractions: props.disableInteractions
+    disableInteractions: props.disableInteractions,
+    className: props.className
   }, contentToken && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_note_content_token_renderer__WEBPACK_IMPORTED_MODULE_2__.default, {
     token: contentToken
   }));
 }
 NoteContent.propTypes = {
   children: PropTypes.string.isRequired,
-  disableInteractions: PropTypes.bool
+  disableInteractions: PropTypes.bool,
+  className: PropTypes.string
 };
 NoteContent.defaultProps = {
   disableInteractions: false
@@ -4530,7 +4534,7 @@ var TypeaheadListFooter = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.defa
   return {
     role: 'contentinfo'
   };
-})(_templateObject || (_templateObject = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tfont-family: Roboto, sans-serif !important;\n\tbackground: #f1f3f5 !important;\n\ttext-align: center !important;\n\tfont-size: 12px !important;\n"])));
+})(_templateObject || (_templateObject = (0,_babel_runtime_corejs2_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__.default)(["\n\tfont-family: Roboto, sans-serif !important;\n\tbackground: #f1f3f5 !important;\n\ttext-align: center !important;\n\tfont-size: 12px !important;\n  \tline-height: 1.5 !important;\n"])));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TypeaheadListFooter);
 
 /***/ }),

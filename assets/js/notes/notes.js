@@ -2075,7 +2075,7 @@ var EComponent = /*#__PURE__*/function (_$e$modules$Component) {
       }
     }); // Toggle notes mode when clicking the admin-bar item (initiated in `module.php`).
 
-    window.addEventListener('elementor/frontend/init', function () {
+    window.addEventListener('DOMContentLoaded', function () {
       var adminBarButton = document.getElementById('wp-admin-bar-elementor_notes');
 
       if (!adminBarButton) {
